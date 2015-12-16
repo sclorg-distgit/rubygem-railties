@@ -1,0 +1,11 @@
+--- lib/rails/generators/app_base.rb.orig
++++ lib/rails/generators/app_base.rb
+@@ -274,7 +274,7 @@
+       end
+ 
+       def run_bundle
+-        bundle_command('install') unless options[:skip_gemfile] || options[:skip_bundle] || options[:pretend]
++        bundle_command('install --local') unless options[:skip_gemfile] || options[:skip_bundle] || options[:pretend]
+       end
+ 
+       def empty_directory_with_keep_file(destination, config = {})
