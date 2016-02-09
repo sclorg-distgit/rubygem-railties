@@ -11,8 +11,8 @@
 
 Summary: Tools for creating, working with, and running Rails applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.5
-Release: 2%{?dist}
+Version: 4.2.5.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
@@ -22,7 +22,7 @@ Source0: %{download_path}%{gem_name}-%{version}.gem
 Source1: http://github.com/rails/rails/raw/master/railties/MIT-LICENSE
 # to get tests:
 # git clone http://github.com/rails/rails.git && cd rails/railties/
-# git checkout v4.2.5 && tar czvf railties-4.2.5-tests.tgz test/
+# git checkout v4.2.5.1 && tar czvf railties-4.2.5.1-tests.tgz test/
 Source2: railties-%{version}-tests.tgz
 # Let's keep Requires and BuildRequires sorted alphabeticaly
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -130,6 +130,9 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Feb 08 2016 Dominic Cleal <dcleal@redhat.com> 4.2.5.1-1
+- Update Rails to 4.2.5.1
+
 * Fri Jan 22 2016 Dominic Cleal <dcleal@redhat.com> 4.2.5-2
 - Rebuild for sclo-ror42 SCL
 
