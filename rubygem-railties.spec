@@ -11,7 +11,7 @@
 Summary: Tools for creating, working with, and running Rails applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.5.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
@@ -30,8 +30,8 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(actionpack) = %{version}
 Requires: %{?scl_prefix}rubygem(activesupport) = %{version}
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.7
-Requires: %{?scl_prefix_ruby}rubygem(thor) >= 0.18.1
-Requires: %{?scl_prefix_ruby}rubygem(thor) < 2.0
+Requires: %{?scl_prefix}rubygem(thor) >= 0.18.1
+Requires: %{?scl_prefix}rubygem(thor) < 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %if 0%{?runtests}
@@ -44,7 +44,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(mocha)
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildRequires: %{?scl_prefix}rubygem(sqlite3)
-BuildRequires: %{?scl_prefix_ruby}rubygem(thor)
+BuildRequires: %{?scl_prefix}rubygem(thor)
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -129,6 +129,9 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Feb 29 2016 Pavel Valena <pvalena@redhat.com> - 4.2.5.1-5
+- Fix rubygem-thor dependency prefix
+
 * Wed Feb 17 2016 Pavel Valena <pvalena@redhat.com> - 4.2.5.1-4
 - Update to 4.2.5.1
 
