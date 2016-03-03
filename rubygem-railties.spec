@@ -6,13 +6,12 @@
 
 %global download_path http://rubygems.org/downloads/
 
-
 %global runtests 0
 
 Summary: Tools for creating, working with, and running Rails applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
@@ -40,7 +39,7 @@ BuildRequires: %{?scl_prefix}rubygem(actionpack) = %{version}
 BuildRequires: %{?scl_prefix}rubygem(activerecord) = %{version}
 BuildRequires: %{?scl_prefix}rubygem(activesupport) = %{version}
 BuildRequires: %{?scl_prefix}rubygem(actionmailer) = %{version}
-BuildRequires: %{?scl_prefix}rubygem(bundler)
+BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(mocha)
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
@@ -130,7 +129,7 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
-* Wed Feb 17 2016 Pavel Valena <pvalena@redhat.com> - 4.2.5.1-3
+* Wed Feb 17 2016 Pavel Valena <pvalena@redhat.com> - 4.2.5.1-4
 - Update to 4.2.5.1
 
 * Mon Jan 26 2015 Josef Stribny <jstribny@redhat.com> - 4.1.5-1
