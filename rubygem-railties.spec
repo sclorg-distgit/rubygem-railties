@@ -6,12 +6,12 @@
 
 %global download_path http://rubygems.org/downloads/
 
-%global runtests 1
+%global runtests 0
 
 Summary: Tools for creating, working with, and running Rails applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.5.1
-Release: 7%{?dist}
+Version: 4.2.6
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
@@ -21,7 +21,7 @@ Source0: %{download_path}%{gem_name}-%{version}.gem
 Source1: http://github.com/rails/rails/raw/master/railties/MIT-LICENSE
 # to get tests:
 # git clone http://github.com/rails/rails.git && cd rails/railties/
-# git checkout v4.2.5.1 && tar czvf railties-4.2.5.1-tests.tgz test/
+# git checkout v4.2.6 && tar czvf railties-4.2.6-tests.tgz test/
 Source2: railties-%{version}-tests.tgz
 Patch0: rubygem-railties-default-to-bundle-install-local.patch
 
@@ -97,7 +97,7 @@ ln -s %{gem_dir}/gems/actionmailer-%{version}/ .%{gem_dir}/gems/actionmailer
 ln -s ${PWD}%{gem_instdir} .%{gem_dir}/gems/railties
 touch .%{gem_dir}/gems/load_paths.rb
 touch .%{gem_dir}/gems/Gemfile
-export RUBYOPT="-I${PWD}%{gem_dir}/gems/railties:${PWD}%{gem_dir}/gems/railties/lib:${PWD}%{gem_dir}/gems/railties/test"
+export RUBYOPT="-I${PWD}%{gem_dir}/gems/railties:${PWD}%{gem_dir}/gems/railties/lib:${PWD}%{gem_dir}/gems/railties/test -rrails/all"
 export PATH="${PWD}%{gem_dir}/gems/railties/bin:$PATH"
 
 pushd .%{gem_dir}/gems/railties
@@ -134,6 +134,9 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Apr 04 2016 Pavel Valena <pvalena@redhat.com> - 4.2.6-1
+- Update to 4.2.6
+
 * Wed Mar 30 2016 vagrant - 4.2.5.1-7
 - Run bundle install with --local
   - Resolves: rhbz#1317078
