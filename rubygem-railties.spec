@@ -11,7 +11,7 @@
 Summary: Tools for creating, working with, and running Rails applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
@@ -75,7 +75,7 @@ mkdir -p .%{_bindir}
 %{?scl:EOF}
 
 pushd .%{gem_instdir}
-%patch0 -p1
+%patch0 -p1 -F 0
 popd
 
 # May by only for v.3.0.3-6
@@ -139,6 +139,9 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Thu Apr 07 2016 Pavel Valena <pvalena@redhat.com> - 4.2.6-3
+- Apply patch properly
+
 * Thu Apr 07 2016 Pavel Valena <pvalena@redhat.com> - 4.2.6-2
 - Fix: apply patch0: run bundler with --local
 

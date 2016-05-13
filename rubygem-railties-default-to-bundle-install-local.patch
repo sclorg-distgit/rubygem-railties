@@ -2,7 +2,7 @@ diff --git a/lib/rails/generators/app_base.rb b/lib/rails/generators/app_base.rb
 index baeb411..8856ef3 100644
 --- a/lib/rails/generators/app_base.rb
 +++ b/lib/rails/generators/app_base.rb
-@@ -341,7 +341,7 @@ module Rails
+@@ -343,7 +343,7 @@ module Rails
        end
  
        def run_bundle
